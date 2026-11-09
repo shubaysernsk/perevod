@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Переведённое видео (одна запись = один запрос перевода)
+model Video {
+  id              String    @id @default(cuid())
+  sourceType      String // 'youtube' | 'direct' | 'subtitles'
+  sourceUrl       String? // исходная ссылка (youtube или прямой файл)
+  youtubeId       String? // ID видео на YouTube
+  title           String
+  author          String?
+  thumbnailUrl    String?
+  durationSec     Float     @default(0)
+  language        String? // определённый исходный язык
+  segmentCount    Int       @default(0)
+  translatedCount Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  segments        Segment[]
+
+  @@index([createdAt])
+}
+
+// Реплика субтитров
+model Segment {
+  id         String  @id @default(cuid())
+  videoId    String
+  video      Video   @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  idx        Int // порядковый номер от 0
+  startSec   Float
+  endSec     Float
+  text       String // оригинал
+  translated String? // перевод на русский
+
+  @@index([videoId, idx])
+}

@@ -1,0 +1,31 @@
+1
+00:00:00,600 --> 00:00:03,860
+Hello, and welcome to the video translation demo.
+
+2
+00:00:04,310 --> 00:00:07,410
+This short clip was generated specially for this application.
+
+3
+00:00:07,860 --> 00:00:11,480
+The player you see right now is playing the original English speech.
+
+4
+00:00:11,930 --> 00:00:18,270
+When you press translate, every phrase will be translated into Russian, by a large language model.
+
+5
+00:00:18,720 --> 00:00:24,220
+The translation appears as subtitles, directly over the video.
+
+6
+00:00:24,670 --> 00:00:28,690
+You can also read the full text in the transcript panel, and jump to any moment.
+
+7
+00:00:29,140 --> 00:00:35,320
+And the experimental voice-over feature reads the translation aloud, in sync with the video.
+
+8
+00:00:35,770 --> 00:00:40,070
+Now go ahead: translate this video, and see how it works!
